@@ -1,0 +1,32 @@
+
+<div class="spinner" ng-show="loading">
+    <img src="https://www.nasa.gov/multimedia/videogallery/ajax-loader.gif" />
+</div>
+<div class="card-deck">
+
+
+    <div ng-repeat="movie in movies.list">
+
+        <div class="card" style="width: 14rem;">
+        <img src={{movie.image}} class="card-img-top" alt={{movie.name}} title={{movie.name}}>
+            <div class="card-body">
+              <h5 class="card-title">{{movie.name}}</h5>
+              <a class="icon" href={{movie.rating.link}} title="IMDb Rating {{movie.rating.rate}}" target="_blank"> <img src="/images/logo-imdb.svg" alt="IMDb Rating" /> </a>
+              <span class="font-weight-bold">{{movie.rating.rate}}</span>
+                <div ng-repeat="torrent in movie.torrents">
+                  <a href={{torrent.torrent}} rel="nofollow" title="Download {{torrent.qualitySize}}-{{torrent.quality}} Torrent" class="btn btn-primary"><span class="icon-in">
+                      </span>{{torrent.qualitySize}}-{{torrent.quality}}</a> 
+                      <a href={{torrent.magnet}} class="fa fa-magnet" style="font-size:32px;color:red" title="{{torrent.qualitySize}}-{{torrent.quality}} Magnet"></a> 
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+  
+  
+  
+</div>
+
+
